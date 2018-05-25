@@ -1,1 +1,624 @@
-/* You can add global styles to this file, and also import other style files */
+@import '/assets/variables';
+
+@font-face {
+  font-family: 'SourceSansPro-Regular';
+  src: url('/assets/fonts/SourceSansPro-Regular/SourceSansPro-Regular.eot');
+  src: url('/assets/fonts/SourceSansPro-Regular/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/SourceSansPro-Regular/SourceSansPro-Regular.woff') format('woff'),
+  url('/assets/fonts/SourceSansPro-Regular/SourceSansPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourceSansPro-Bold';
+  src: url('/assets/fonts/SourceSansPro-Bold/SourceSansPro-Bold.eot');
+  src: url('/assets/fonts/SourceSansPro-Bold/SourceSansPro-Bold.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/SourceSansPro-Bold/SourceSansPro-Bold.woff') format('woff'),
+  url('/assets/fonts/SourceSansPro-Bold/SourceSansPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoMono-Regular';
+  src: url('/assets/fonts/RobotoMono-Regular/RobotoMono-Regular.eot');
+  src: url('/assets/fonts/RobotoMono-Regular/RobotoMono-Regular.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/RobotoMono-Regular/RobotoMono-Regular.woff') format('woff'),
+  url('/assets/fonts/RobotoMono-Regular/RobotoMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Bigin general */
+
+.wrapper {
+  font-size: 16px;
+  background-color: $dark-bg;
+}
+
+.cabinet {
+  width: 100%;
+  min-height: 100vh;
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-ssp-regular;
+}
+
+.cabinet__main {
+  flex-grow: 1;
+  border-radius: 3px;
+}
+
+.svg_icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+}
+
+/* End general */
+
+/*********************************************/
+
+/* Begin vertical navigation */
+
+.vertical-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: 100%;
+  overflow: hidden;
+  background-color: $form-bg;
+  box-shadow: $main-box-shadow;
+  &:hover {
+    .vertical-nav__link {
+      width: 140px;
+      transition: all 300ms ease-in-out;
+    }
+  }
+  &__item {
+    &:last-child {
+      .vertical-nav__link {
+        border-bottom: none;
+      }
+    }
+    &_active {
+      .vertical-nav__link {
+        background-color: $dark-bg;
+      }
+    }
+  }
+  &_logo {
+    background-color: $form-bg;
+    &:hover {
+      .vertical-nav__link {
+        background-color: $form-bg;
+      }
+    }
+  }
+  &__link {
+    width: 50px;
+    min-height: 44px;
+    background-color: $form-bg;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $light-bg;
+    transition: all 300ms ease-in-out;
+    &:hover {
+      text-decoration: none;
+      background-color: $dark-bg;
+    }
+  }
+  &__icon {
+    min-width: 50px;
+    max-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__name {
+    padding-left: 5px;
+    padding-right: 20px;
+    font-family: $font-ssp-regular;
+    font-size: 0.875em;
+    color: $white;
+    white-space: nowrap;
+  }
+}
+
+/* End vertical navigation */
+
+/*********************************************/
+
+/* Begin cabinet__header */
+
+.cabinet__header {
+  height: 48px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  background-color: $light-bg;
+  box-shadow: $main-box-shadow;
+}
+
+/* Begin tab-switch */
+
+.tab-switch {
+  display: flex;
+  align-items: center;
+  &__title {
+    font-size: 1.125em;
+    line-height: 1em;
+    color: $light-text-color;
+  }
+  &__list {
+    padding: 0 10px;
+    display: flex;
+    .uk-active {
+      color: $white;
+      border-radius: 3px;
+      background-color: $dark-bg;
+      transition: all 300ms ease-in-out;
+      &:hover {
+        color: $white;
+      }
+    }
+    &-item {
+      display: inline-block;
+      font-family: $font-ssp-bold;
+      font-size: 0.75em;
+      text-transform: uppercase;
+      line-height: 1;
+      padding: 5px 10px;
+      color: $light-text-color;
+      &:hover {
+        color: $light-text-color;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+/* End tab-switch */
+
+/****************************************/
+
+/* Begin search */
+
+.search {
+  position: relative;
+  width: 230px;
+  height: 20px;
+  line-height: 1;
+  &_right {
+    margin-left: auto;
+  }
+  &__input {
+    width: 100%;
+    height: 100%;
+    padding: 0 35px 0 5px;
+    line-height: 1;
+    font-size: 0.75em;
+    font-family: $font-ssp-regular;
+    color: $light-text-color;
+    outline: none;
+    border: 1px solid $form-border-color;
+    border-radius: 2px;
+    background-color: $form-bg;
+    box-sizing: border-box;
+    &::placeholder {
+      font-family: $font-ssp-regular;
+      font-style: italic;
+      font-size: 10px;
+      line-height: 20px;
+      color: $light-text-color;
+      transition: all 300ms ease-in-out;
+    }
+    &:focus {
+      &::placeholder {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+    }
+  }
+  &__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //background: transparent;
+    .svg_icon {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+/* End search */
+
+/*********************************************/
+
+/* Begin profile-info */
+
+.profile-info {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  &__list {
+    margin-right: 60px;
+    &-item {
+      display: flex;
+      font-family: $font-ssp-regular;
+      font-size: 0.75em;
+      color: $light-text-color;
+      &-value {
+        color: $main-text-color;
+        margin-left: 5px;
+      }
+    }
+  }
+  &__mail {
+    font-family: $font-ssp-regular;
+    font-size: 0.75em;
+    a {
+      color: $main-text-color;
+      transition: color 300ms ease-in-out;
+      &:hover {
+        color: $button-light-bg;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+/* End profile-info */
+
+/* End cabinet__header */
+
+/*********************************************/
+
+/* Begin table__box */
+
+.table__box {
+  padding: 8px 5px;
+  border-radius: 3px;
+  background-color: $light-bg;
+}
+
+.background_form {
+  background-color: $light-bg;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: $light-bg;
+  &__head {
+    .table__row {
+      height: 40px;
+      background-color: $dark-bg;
+      th {
+        padding-left: 20px;
+        font-family: $font-ssp-bold;
+        font-size: 0.75em;
+        text-align: left;
+        text-transform: uppercase;
+        line-height: 1.25;
+        color: $light-text-color;
+        &:first-child {
+          border-radius: 3px 0 0 3px;
+        }
+        &:last-child {
+          border-radius: 0 3px 3px 0;
+        }
+      }
+    }
+  }
+  &__body {
+    .table__row {
+      height: 30px;
+      td {
+        padding-left: 20px;
+        font-family: $font-ssp-regular;
+        font-size: 0.875em;
+        color: $main-text-color;
+        &:first-child {
+          border-radius: 3px 0 0 3px;
+        }
+        &:last-child {
+          border-radius: 0 3px 3px 0;
+        }
+      }
+      &:nth-child(even) {
+        background-color: $table-dark-line-bg;
+      }
+    }
+  }
+
+  .num_style {
+    font-family: $global-font-family;
+    font-size: 12px;
+  }
+
+  .table__link {
+    color: $link-color;
+    text-decoration: none;
+    &:hover {
+      color: $link-color;
+    }
+  }
+  &.table_profile {
+    .data_1 {
+      width: 30%;
+    }
+    .data_2 {
+      width: 28.60%;
+    }
+    .data_3 {
+      width: 27.95%;
+    }
+    .data_4 {
+      width: 13.45%;
+    }
+  }
+  .status_icon {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    svg {
+      margin-right: 12px;
+    }
+  }
+}
+
+/* End table__box */
+
+/*********************************************/
+
+/* Begin Profile */
+
+.twofa {
+  padding: 7px 20px;
+  padding-bottom: 140px; //test
+  background-color: $light-bg;
+  &__title {
+    font-family: $font-ssp-bold;
+    font-size: 0.9375em;
+    color: $light-text-color;
+  }
+  &_disabled {
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -11px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: $red;
+      transform: translateY(-50%);
+    }
+  }
+  &__row {
+    margin-top: 20px;
+    .twofa__title {
+      margin-bottom: 10px;
+    }
+  }
+  &__content {
+    &-text {
+      font-family: $font-ssp-regular;
+      font-size: 0.75em;
+      color: $main-text-color;
+    }
+    &-key {
+      font-family: $font-ssp-bold;
+      font-size: 0.75em;
+      text-transform: uppercase;
+      color: $white;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  }
+}
+
+.btn-default {
+  width: 100%;
+  height: 30px;
+  padding: 0;
+  font-family: $font-ssp-bold;
+  font-size: 0.875em;
+  color: $white;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  transition: background-color 300ms ease-in-out;
+  &.deposit_btn {
+    background-color: $button-light-bg;
+    &:hover, &:focus {
+      background-color: $button-light-bg-focused;
+    }
+    &:active {
+      background-color: $button-light-bg-active;
+    }
+  }
+}
+
+.api {
+  padding: 15px 10px;
+  padding-bottom: 50px; //test
+  background-color: $light-bg;
+}
+
+/* End Profile */
+
+/*********************************************/
+
+/* Begin form */
+
+.form__input {
+  width: 100%;
+  height: 30px;
+  padding: 0 10px;
+  font-family: $font-ssp-regular;
+  font-size: 0.875em;
+  color: $light-text-color;
+  outline: none;
+  border: 1px solid $form-border-color;
+  border-radius: 3px;
+  background-color: $form-bg;
+  box-sizing: border-box;
+  &::placeholder {
+    font-family: $font-ssp-regular;
+    font-style: italic;
+    font-size: 12px;
+    color: $light-text-color;
+    transition: all 300ms ease-in-out;
+  }
+  &:focus {
+    &::placeholder {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+  }
+}
+
+.form__info {
+  margin-top: 5px;
+  font-family: $font-ssp-regular;
+  font-style: italic;
+  font-size: 0.625em;
+  color: $light-text-color;
+}
+
+/* End form */
+
+/*********************************************/
+
+/* Begin profile__footer */
+
+.cabinet__footer {
+  height: 40px;
+  padding: 0 10px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $footer-bg;
+  border-radius: 3px;
+  background-color: $footer-bg;
+  box-shadow: $main-box-shadow;
+}
+
+.copyright {
+  font-family: $font-ssp-regular;
+  font-size: 0.75em;
+  color: $white;
+  opacity: 0.5;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  &__item {
+    position: relative;
+    margin: 0 10px;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 7px;
+      right: -10px;
+      height: 14px;
+      width: 1px;
+      background-color: $white;
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+      &:after {
+        content: none;
+      }
+    }
+  }
+}
+
+.menu-item__link {
+  font-family: $font-ssp-regular;
+  font-size: 0.75em;
+  line-height: 25px;
+  color: $white;
+  transition: color 300ms ease-in-out;
+  &:hover {
+    color: $light-text-color;
+    text-decoration: none;
+  }
+}
+
+.social {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  &__item {
+    margin-right: 15px;
+    border-radius: 50%;
+    background-color: $white;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &_m {
+    width: 11px;
+    height: 8px;
+  }
+  &_tw {
+    width: 11px;
+    height: 9px;
+  }
+  &_tg {
+    width: 11px;
+    height: 11px;
+  }
+  &_rd {
+    width: 11px;
+    height: 12px;
+  }
+}
+
+.social-item__link {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* End profile__footer */
