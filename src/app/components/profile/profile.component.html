@@ -114,7 +114,7 @@
       <!-- Begin tab-switch -->
       <div class="tab-switch">
         <div class="tab-switch__title">Profile</div>
-        <div class="tab-switch__list" uk-switcher="connect: #profile-target">
+        <div class="tab-switch__list" uk-switcher="connect: #profile-target; animation: uk-animation-fade">
           <a href="javascript:void(0)" class="tab-switch__list-item">Activity</a>
           <a href="javascript:void(0)" class="tab-switch__list-item">2fa</a>
           <a href="javascript:void(0)" class="tab-switch__list-item">Api</a>
@@ -127,7 +127,7 @@
         <div class="profile-info__list">
           <div class="profile-info__list-item">
             <div class="profile-info__list-item-name">Status:</div>
-            <div class="profile-info__list-item-value">Unverified</div>
+            <div class="profile-info__list-item-value color_red">Unverified</div>
           </div>
           <div class="profile-info__list-item">
             <div class="profile-info__list-item-name">Daily withdrawal limit:</div>
@@ -142,14 +142,11 @@
     </div>
     <!-- End profile__header -->
 
-
-
     <!-- Begin profile__main -->
     <div class="cabinet__main">
-      <!-- Begin table box -->
       <div id="profile-target" class="tab-content uk-switcher">
         <div class="tab-content__item">
-          <div class="table__box">
+          <div class="profile__table">
             <table class="table table_profile">
               <thead class="table__head">
               <tr class="table__row">
@@ -228,7 +225,8 @@
           </div>
         </div>
         <div class="tab-content__item">
-          <div class="twofa">
+          <div class="profile__twofa">
+            <div class="twofa">
             <div class="twofa__title twofa_disabled">Disabled</div>
             <div class="twofa__row">
               <div class="twofa__title">Save your 64-digit key</div>
@@ -249,35 +247,191 @@
               <div class="twofa__title">Get a Google authenticator code</div>
               <div class="twofa__content uk-grid uk-grid-small">
                 <div class="uk-width-1-3">
-                  <div class="twofa__content-text">In order to use 2FA, scan the QR code to the left into the Google Authenticator app on your phone or enter 64-digit key</div>
+                  <div class="twofa__content-text twofa__content-qrbox"><div class="qr-code"></div>In order to use 2FA, scan the QR code to the left into the Google Authenticator app on your phone or enter 64-digit key</div>
                 </div>
                 <div class="uk-width-1-3">
-                  <form class="twofa__content-form">
+                  <form id="form-twofa" class="twofa__content-form">
                     <input type="text" placeholder="6-digit code" class="form__input">
                     <div class="form__info">This code changes each time you enable 2FA. If you disable 2FA this code will no longer be valid.</div>
                   </form>
                 </div>
                 <div class="uk-width-1-3">
-                  <button class="btn-default deposit_btn">Enable 2FA</button>
+                  <button type="submit" form="form-twofa" class="btn-default deposit_btn">Enable 2FA</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="tab-content__item">
+          <div class="profile__api">
+            <div class="profile__api-row">
+              <form action="#" class="form">
+                <div class="uk-grid uk-grid-small">
+                  <div class="uk-width-1-4">
+                    <div class="form__group">
+                      <label class="form__label">
+                        <div class="form__label-name">Key name</div>
+                        <input type="text" class="form__input">
+                        <div class="form__info">Enter a key name here.</div>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="uk-width-1-4">
+                    <div class="form__group">
+                      <label class="form__label">
+                        <div class="form__label-name">IP White list</div>
+                        <input type="text" class="form__input">
+                        <div class="form__info">*See description block on the right.</div>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="uk-width-1-4">
+                    <div class="form__group">
+                      <button type="submit" class="btn-default deposit_btn">Create</button>
+                    </div>
+                  </div>
+                  <div class="uk-width-1-4">
+                    <div class="form__group">
+                      <div class="profile__api-description">Accepts records of the following types: 127.0.0.1 (IP address) or 127.0.0.1-127.0.0.255 (the range of IP addresses). <br />Several values separated by a comma are entered, for example: 127.0.0.1,127.0.0.10-127.0.0.20</div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="profile__api-row">
+              <hr class="separator">
+            </div>
+            <div class="profile__api-row">
+              <form action="#" class="form">
+                <div class="uk-grid uk-grid-small">
+                  <div class="uk-width-1-2">
+                    <div class="form__group">
+                      <label class="form__label">
+                        <div class="form__label-name">Api Key</div>
+                        <input type="text" class="form__input" value="NQTQSSI9-OZZ80GR3-NQ1VLA9Z-8WBKQRWU-WWJ9LBOQ">
+                      </label>
+                    </div>
+                  </div>
+                  <div class="uk-width-1-4">
+                    <div class="form__group">
+                      <button class="btn-default denim_btn">Copy</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="profile__api-row">
+              <form action="#" class="form">
+                <div class="uk-grid uk-grid-small">
+                  <div class="uk-width-1-2">
+                    <div class="form__group">
+                      <label class="form__label">
+                        <div class="form__label-name">Api Secret</div>
+                        <input type="text" class="form__input" value="e79ee9650d163589e1e7c1a15abd0d555cb3046637c6612778b2e476db5c1">
+                      </label>
+                    </div>
+                  </div>
+                  <div class="uk-width-1-4">
+                    <div class="form__group">
+                      <button class="btn-default denim_btn">Copy</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content__item">
+          <div class="profile__settings">
+            <div class="uk-grid uk-grid-small">
+              <div class="uk-width-1-4">
+                <div class="settings__box">
+                  <div class="settings__box-title">Automatic Order Confirmation</div>
+                  <form action="#" class="form">
+                    <div class="form__radio-box">
+                      <label class="form__radio-label">
+                        <input type="radio" name="turn" class="form__radio-input" checked>
+                        <div class="form__radio-btn"></div>
+                        <div class="form__radio-text">Turn On</div>
+                      </label>
+                      <label class="form__radio-label">
+                        <input type="radio" name="turn" class="form__radio-input">
+                        <div class="form__radio-btn"></div>
+                        <div class="form__radio-text">Turn Off</div>
+                      </label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="uk-width-3-4">
+                <div class="settings__box">
+                  <div class="settings__box-title">Notification</div>
+                  <form action="#" class="form">
+                    <div class="form__slide-box">
+                      <label class="form__slide-label">
+                        <div class="form__slide-text">NasDuck newsletter</div>
+                        <input type="checkbox" class="form__slide-input" checked >
+                        <div class="form__slide-btn"></div>
+                      </label>
+                      <label class="form__slide-label">
+                        <div class="form__slide-text">Emails about coin removals</div>
+                        <input type="checkbox" class="form__slide-input">
+                        <div class="form__slide-btn"></div>
+                      </label>
+                      <label class="form__slide-label">
+                        <div class="form__slide-text">Emails about market removals</div>
+                        <input type="checkbox" class="form__slide-input">
+                        <div class="form__slide-btn"></div>
+                      </label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="uk-width-1">
+                <div class="settings__box">
+                  <div class="settings__box-title">Password</div>
+                  <form action="#" class="form">
+                    <div class="form__change-password">
+                      <div class="uk-grid uk-grid-small">
+                        <div class="uk-width-1-4">
+                          <div class="form__group">
+                            <label class="form__label">
+                              <div class="form__label-name">Current password</div>
+                              <input type="text" class="form__input">
+                            </label>
+                          </div>
+                        </div>
+                        <div class="uk-width-1-4">
+                          <div class="form__group">
+                            <label class="form__label">
+                              <div class="form__label-name">New password</div>
+                              <input type="text" class="form__input">
+                            </label>
+                          </div>
+                        </div>
+                        <div class="uk-width-1-4">
+                          <div class="form__group">
+                            <label class="form__label">
+                              <div class="form__label-name">Confirm password</div>
+                              <input type="text" class="form__input">
+                            </label>
+                          </div>
+                        </div>
+                        <div class="uk-width-1-4">
+                          <div class="form__group">
+                            <button type="submit" class="btn-default deposit_btn">Change password</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="tab-content__item">
-          <div class="api">
-            <div class="api__row">
-              <div class="uk-grid uk-grid-small">
-                <div class="uk-width-1-4">1</div>
-                <div class="uk-width-1-4">2</div>
-                <div class="uk-width-1-4">3</div>
-                <div class="uk-width-1-4">4</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-      <!-- End table box -->
     </div>
     <!-- End profile__main -->
 

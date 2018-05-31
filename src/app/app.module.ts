@@ -5,12 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SpecAssetsComponent } from './components/spec-assets/spec-assets.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { TradeHistoryComponent } from './components/trade-history/trade-history.component';
+import { WalletsComponent } from './components/wallets/wallets.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { MarketsComponent } from './components/markets/markets.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpecAssetsComponent,
-    ProfileComponent
+    ProfileComponent,
+    TradeHistoryComponent,
+    WalletsComponent,
+    RegistrationComponent,
+    LogInComponent,
+    MarketsComponent
   ],
   imports: [
     BrowserModule,

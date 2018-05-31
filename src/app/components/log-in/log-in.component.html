@@ -40,7 +40,7 @@
         <div class="vertical-nav__name">Profile</div>
       </a>
     </div>
-    <div class="vertical-nav__item vertical-nav__item_active">
+    <div class="vertical-nav__item">
       <a href="#" class="vertical-nav__link">
         <div class="vertical-nav__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24">
@@ -94,7 +94,7 @@
         <div class="vertical-nav__name">Support</div>
       </a>
     </div>
-    <div class="vertical-nav__item">
+    <div class="vertical-nav__item vertical-nav__item_active">
       <a href="#" class="vertical-nav__link">
         <div class="vertical-nav__icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="17" height="19" viewBox="0 0 17 19">
@@ -109,107 +109,55 @@
   </div>
   <!-- End navigation -->
   <div class="cabinet">
-    <!-- Begin profile__header -->
-    <div class="cabinet__header">
-      <!-- Begin tab-switch -->
-      <div class="tab-switch">
-        <div class="tab-switch__title">Specification</div>
-        <div class="tab-switch__list" uk-switcher="connect: #spec-target; animation: uk-animation-fade">
-          <a href="javascript:void(0)" class="tab-switch__list-item">Assets</a>
-          <a href="javascript:void(0)" class="tab-switch__list-item">Pairs</a>
-        </div>
-      </div>
-      <!-- End tab-switch -->
 
-      <!-- Begin search -->
-      <form class="search search_right">
-        <input type="text" placeholder="Search full name" class="search__input">
-        <button class="search__button">
-          <svg xmlns="http://www.w3.org/2000/svg" class="svg_icon" viewBox="0 0 15 14">
-            <g fill="none" fill-rule="evenodd" stroke="#6C91BF" stroke-linecap="round" transform="translate(1)">
-              <circle cx="4.768" cy="5.393" r="4.768"/>
-              <path d="M8.228 8.934l5.022 5.034"/>
-            </g>
-          </svg>
-        </button>
+    <div class="cabinet__main auth">
+      <!-- Begin log-in -->
+      <form action="#" class="form form_login">
+        <div class="form__title">LOG IN YOUR ACCOUNT</div>
+        <div class="form__group group_margin">
+          <label class="form__label">
+            <div class="form__label-name">Enter your login email here</div>
+            <input type="text" placeholder="email@mail.com" class="form__input">
+          </label>
+        </div>
+        <div class="form__group group_margin">
+          <label class="form__label">
+            <div class="form__label-name">Enter your password here</div>
+            <input type="password" placeholder="Password" class="form__input">
+          </label>
+        </div>
+        <div class="group_margin">
+          <div class="inform">
+            <span class="inform__text">For your security, we have emailed you a one-time authentication code. Please enter this code below to proceed.</span>
+          </div>
+        </div>
+        <div class="form__group group_margin">
+          <label class="form__label">
+            <div class="form__label-name">Enter your password here</div>
+            <input type="password" placeholder="Authentication code" class="form__input">
+          </label>
+        </div>
+        <div class="group_margin">
+          <div class="display_flex">
+            <label class="form__checkbox-label">
+              <input type="checkbox" class="form__checkbox-input">
+              <div class="form__checkbox-btn"></div>
+              <div class="form__checkbox-text">Remember me</div>
+            </label>
+            <div class="forgot__password">
+              <a href="#" class="link color_light">Forgot your Password?</a>
+            </div>
+          </div>
+        </div>
+        <div class="form__group-button">
+          <button class="btn-default deposit_btn">LOG IN</button>
+        </div>
+        <div class="inform">
+          <span class="inform__text text_center">Or sign up <a href="#" class="link link_blue">here</a>.</span>
+        </div>
       </form>
-      <!-- End search -->
+      <!-- End log-in -->
     </div>
-    <!-- End profile__header -->
-
-    <!-- Begin profile__main -->
-    <div class="cabinet__main background_form">
-      <!-- Begin table box -->
-      <div id="spec-target" class="tab-content uk-switcher">
-        <div class="tab-content__item">
-          <div class="table__box">
-            <table class="table">
-            <thead class="table__head">
-              <tr class="table__row">
-                <th>Name</th>
-                <th>Symbol</th>
-                <th>Deposit <br />min. amount</th>
-                <th>Withdraw fee</th>
-                <th>Withdraw <br />min. amount</th>
-                <th>Blockchain</th>
-                <th>Confirmations <br />count</th>
-              </tr>
-            </thead>
-            <tbody class="table__body">
-              <tr class="table__row">
-                <td>Bitcoin</td>
-                <td>BTC</td>
-                <td class="num_style">0.00000028</td>
-                <td class="num_style">0.001%</td>
-                <td class="num_style">0.00000028</td>
-                <td><a href="#" class="table__link">blockchain</a></td>
-                <td class="num_style">3</td>
-              </tr>
-              <tr class="table__row">
-                <td>Dogecoin</td>
-                <td>DOGE</td>
-                <td class="num_style">0.00000028</td>
-                <td class="num_style">0.05%</td>
-                <td class="num_style">0.00000028</td>
-                <td><a href="#" class="table__link">blockchain</a></td>
-                <td class="num_style">5</td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-        </div>
-        <div class="tab-content__item">
-          <div class="table__box">
-            <table class="table">
-            <thead class="table__head">
-            <tr class="table__row">
-              <th>Pair</th>
-              <th>min. price</th>
-              <th>max. price</th>
-              <th>min. amount</th>
-              <th>max. amount</th>
-              <th>maker fee</th>
-              <th>taker fee</th>
-            </tr>
-            </thead>
-            <tbody class="table__body">
-              <tr class="table__row">
-                <td>AE/BTC</td>
-                <td class="num_style">0.00000028</td>
-                <td class="num_style">0.00000028</td>
-                <td class="num_style">0.00000028</td>
-                <td class="num_style">0.00000028</td>
-                <td class="num_style">0.1<span class="overnull">00</span>%</td>
-                <td class="num_style">0.1<span class="overnull">00</span>%</td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-        </div>
-      </div>
-      <!-- End table box -->
-    </div>
-    <!-- End profile__main -->
 
     <!-- Begin profile__footer -->
     <div class="cabinet__footer">
@@ -224,37 +172,29 @@
       <ul class="social">
         <li class="social__item">
           <a href="#" class="social-item__link">
-            <svg class="svg_icon social_m" viewBox="0 0 11 8" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              <g id="Day" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                <g id="nasduck_02_profile_2FA-Copy-2" transform="translate(-918.000000, -577.000000)" fill="#13315C">
-                  <g id="NasDuck" transform="translate(109.000000, 560.000000)">
-                    <g id="Group-81" transform="translate(804.000000, 10.000000)">
-                      <path d="M6.90624665,8.70936883 C6.90624665,8.59218161 6.86067394,8.48801529 6.76952822,8.39686958 L5.89062407,7.34218459 L5.89062407,7.18593496 L8.64452375,7.18593496 L10.7538937,11.8343614 L12.609358,7.18593496 L15.2265393,7.18593496 L15.2265393,7.34218459 L14.4648224,8.06483912 C14.3997185,8.11692243 14.3736767,8.18853664 14.3866976,8.27968236 L14.3866976,13.5921697 C14.3736767,13.6833154 14.3997185,13.7549296 14.4648224,13.8070129 L15.2070081,14.5296675 L15.2070081,14.6859171 L11.4960795,14.6859171 L11.4960795,14.5296675 L12.2577964,13.7874817 C12.2968588,13.7484193 12.3196453,13.7191225 12.3261556,13.6995913 C12.3326659,13.6800601 12.3359212,13.6377424 12.3359212,13.5726385 L12.3359212,9.27577373 L10.2265512,14.6663859 L9.93358318,14.6663859 L7.45312034,9.27577373 L7.45312034,12.8890464 C7.44009944,13.045296 7.48567245,13.1820144 7.58983877,13.2992016 L8.58593014,14.5101363 L8.58593014,14.6663859 L5.77343685,14.6663859 L5.77343685,14.5101363 L6.76952822,13.2992016 C6.88671544,13.1820144 6.93228815,13.045296 6.90624665,12.8890464 L6.90624665,8.70936883 Z" id=""></path>
-                    </g>
-                  </g>
-                </g>
-              </g>
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="8" viewBox="0 0 11 8">
+              <path fill-rule="evenodd" d="M1.906 1.71a.43.43 0 0 0-.136-.313L.89.342V.186h2.755l2.109 4.648L7.609.186h2.618v.156l-.762.723c-.065.052-.091.124-.078.215v5.312c-.013.091.013.163.078.215l.742.723v.156h-3.71V7.53l.76-.743a.287.287 0 0 0 .07-.087.505.505 0 0 0 .009-.127V2.276l-2.11 5.39h-.292l-2.48-5.39v3.613a.528.528 0 0 0 .136.41l.996 1.211v.156H.773V7.51L1.77 6.3a.448.448 0 0 0 .136-.411v-4.18z"/>
             </svg>
           </a>
         </li>
         <li class="social__item">
           <a href="#" class="social-item__link">
             <svg class="svg_icon social_tw" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 9">
-              <path fill="#13315C" fill-rule="nonzero" d="M3.813 8.76c3.667-.09 5.669-3.145 5.669-5.799 0-.088-.002-.176-.006-.263.4-.288.749-.647 1.024-1.056a4.123 4.123 0 0 1-1.178.321c.423-.252.749-.652.902-1.128a4.127 4.127 0 0 1-1.303.495A2.056 2.056 0 0 0 7.423.686a2.046 2.046 0 0 0-2 2.504 5.838 5.838 0 0 1-4.229-2.13 2.035 2.035 0 0 0 .635 2.722 2.054 2.054 0 0 1-.93-.256v.026c0 .988.708 1.812 1.647 2a2.067 2.067 0 0 1-.927.034c.261.81 1.019 1.4 1.917 1.416A4.135 4.135 0 0 1 .5 7.847v.001c.876.558 1.911.89 3.023.913h.29"/>
+              <path fill-rule="nonzero" d="M3.813 8.76c3.667-.09 5.669-3.145 5.669-5.799 0-.088-.002-.176-.006-.263.4-.288.749-.647 1.024-1.056a4.123 4.123 0 0 1-1.178.321c.423-.252.749-.652.902-1.128a4.127 4.127 0 0 1-1.303.495A2.056 2.056 0 0 0 7.423.686a2.046 2.046 0 0 0-2 2.504 5.838 5.838 0 0 1-4.229-2.13 2.035 2.035 0 0 0 .635 2.722 2.054 2.054 0 0 1-.93-.256v.026c0 .988.708 1.812 1.647 2a2.067 2.067 0 0 1-.927.034c.261.81 1.019 1.4 1.917 1.416A4.135 4.135 0 0 1 .5 7.847v.001c.876.558 1.911.89 3.023.913h.29"/>
             </svg>
           </a>
         </li>
         <li class="social__item">
           <a href="#" class="social-item__link">
             <svg class="svg_icon social_tg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11">
-              <path fill="#13315C" fill-rule="nonzero" d="M10.357.75a.344.344 0 0 0-.376-.014L.679 6.196a.357.357 0 0 0-.178.337c.007.14.095.262.223.313l2.204.92L8.89 2.508 4.082 8.526v1.982a.355.355 0 0 0 .233.355c.039.017.08.025.122.025a.346.346 0 0 0 .272-.131L6.06 9.08l2.527 1.066a.344.344 0 0 0 .307-.018.355.355 0 0 0 .178-.256l1.422-8.767a.359.359 0 0 0-.136-.355z"/>
+              <path fill-rule="nonzero" d="M10.357.75a.344.344 0 0 0-.376-.014L.679 6.196a.357.357 0 0 0-.178.337c.007.14.095.262.223.313l2.204.92L8.89 2.508 4.082 8.526v1.982a.355.355 0 0 0 .233.355c.039.017.08.025.122.025a.346.346 0 0 0 .272-.131L6.06 9.08l2.527 1.066a.344.344 0 0 0 .307-.018.355.355 0 0 0 .178-.256l1.422-8.767a.359.359 0 0 0-.136-.355z"/>
             </svg>
           </a>
         </li>
         <li class="social__item">
           <a href="#" class="social-item__link">
             <svg class="svg_icon social_rd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12">
-              <path fill="#13315C" fill-rule="nonzero" d="M8.729 9.72a.222.222 0 0 0-.34 0c-.403.4-1.277.543-1.883.543-.607 0-1.489-.143-1.884-.542a.222.222 0 0 0-.34 0 .245.245 0 0 0 0 .339c.637.637 1.866.686 2.231.686.366 0 1.594-.05 2.23-.686a.245.245 0 0 0-.014-.34zM5.3 7.698A1.002 1.002 0 1 0 4.298 8.7c.552-.002.998-.45.998-1.003H5.3zm4.404 0A1.002 1.002 0 1 0 8.702 8.7c.552-.002.999-.45.999-1.003h.003zm2.796-1.34c0 .503-.28.964-.727 1.197.052.209.078.422.079.637 0 2.11-2.396 3.828-5.339 3.828-2.942 0-5.327-1.718-5.327-3.828.003-.209.025-.417.068-.622A1.353 1.353 0 0 1 .5 6.356a1.338 1.338 0 0 1 2.306-.915 6.462 6.462 0 0 1 3.447-1.082L7.037.874a.219.219 0 0 1 .275-.17l2.453.547a1.006 1.006 0 1 1-.102.456L7.44 1.19l-.705 3.165c1.235.02 2.438.389 3.47 1.066a1.334 1.334 0 0 1 2.291.93l.004.004z"/>
+              <path fill-rule="nonzero" d="M8.729 9.72a.222.222 0 0 0-.34 0c-.403.4-1.277.543-1.883.543-.607 0-1.489-.143-1.884-.542a.222.222 0 0 0-.34 0 .245.245 0 0 0 0 .339c.637.637 1.866.686 2.231.686.366 0 1.594-.05 2.23-.686a.245.245 0 0 0-.014-.34zM5.3 7.698A1.002 1.002 0 1 0 4.298 8.7c.552-.002.998-.45.998-1.003H5.3zm4.404 0A1.002 1.002 0 1 0 8.702 8.7c.552-.002.999-.45.999-1.003h.003zm2.796-1.34c0 .503-.28.964-.727 1.197.052.209.078.422.079.637 0 2.11-2.396 3.828-5.339 3.828-2.942 0-5.327-1.718-5.327-3.828.003-.209.025-.417.068-.622A1.353 1.353 0 0 1 .5 6.356a1.338 1.338 0 0 1 2.306-.915 6.462 6.462 0 0 1 3.447-1.082L7.037.874a.219.219 0 0 1 .275-.17l2.453.547a1.006 1.006 0 1 1-.102.456L7.44 1.19l-.705 3.165c1.235.02 2.438.389 3.47 1.066a1.334 1.334 0 0 1 2.291.93l.004.004z"/>
             </svg>
           </a>
         </li>
