@@ -7,6 +7,7 @@ import { WalletsComponent } from './components/wallets/wallets.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { MarketsComponent } from './components/markets/markets.component';
+import { MainGraphTogglesComponent } from './components/main-graph-toggles/main-graph-toggles.component';
 
 const routes: Routes = [
   { path: 'spec-assets', component: SpecAssetsComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'wallets', component: WalletsComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'log-in', component: LogInComponent },
-  { path: 'markets', component: MarketsComponent }
+  { path: 'markets', component: MarketsComponent },
+  { path: 'graph-toggles', component: MainGraphTogglesComponent }
 ];
 
 @NgModule({

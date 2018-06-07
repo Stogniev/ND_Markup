@@ -65,6 +65,18 @@
   justify-content: flex-start;
 }
 
+.flex_right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.flex_left {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
 .title {
   margin-right: 10px;
   font-family: $font-ssp-bold;
@@ -85,8 +97,17 @@
   border-top: 1px solid $border-color;
 }
 
+.font_bold {
+  font-family: $font-ssp-bold;
+  color: $white;
+}
+
 .text_center {
   text-align: center;
+}
+
+.color_white {
+  color: $white;
 }
 
 .color_red {
@@ -99,6 +120,10 @@
 
 .color_light {
   color: $light-text-color !important;
+}
+
+.color_green {
+  color: $green !important;
 }
 
 /* End general */
@@ -176,6 +201,153 @@
 
 /*********************************************/
 
+/* Begin chat */
+
+.chat {
+  position: fixed;
+  right: calc((100% - 940px) / 2);
+  bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  &-btn {
+    width: 50px;
+    height: 50px;
+    border: 1px solid $border-color-dark;
+    border-radius: 50%;
+    background-color: $light-bg;
+    box-shadow: $main-box-shadow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-box {
+    width: 280px;
+    border: 1px solid $border-color-dark;
+    border-radius: 3px;
+    background-color: $light-bg;
+    box-shadow: $chat-box-shadow;
+  }
+  &__header {
+    min-height: 30px;
+    padding: 0 10px;
+    border-bottom: 1px solid transparentize($link-color, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &__title {
+    font-family: $font-ssp-bold;
+    font-size: 0.9375em;
+    line-height: 1;
+    color: $gray;
+  }
+  &__close {
+    line-height: 0;
+    margin-left: auto;
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+  &-room {
+    width: 100%;
+    min-height: 300px;
+    padding: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    &__msg {
+      width: 100%;
+      margin-bottom: 10px;
+      &.msg_enemy {
+        .chat-room__msg-content {
+          align-items: flex-start;
+        }
+        .chat-room__msg-text {
+          border-radius: 10px 10px 10px 0;
+          background-color: $chat-msg-bg;
+        }
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      &-name {
+        margin-bottom: 5px;
+        font-family: $font-ssp-bold;
+        font-size: 0.75em;
+        color: $gray;
+      }
+      &-text {
+        margin-bottom: 3px;
+        padding: 6px 10px;
+        font-family: $font-ssp-regular;
+        font-size: 0.75em;
+        line-height: 16px;
+        color: $white;
+        border-radius: 10px 10px 0 10px;
+        background-color: $dark-bg;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  &-form {
+    min-height: 30px;
+    border-top: 1px solid transparentize($link-color, 0.8);
+    &__box {
+      position: relative;
+      width: 100%;
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    &__input {
+      width: 100%;
+      height: 100%;
+      min-height: 30px;
+      padding: 0 25px 0 10px;
+      outline: none;
+      color: $white;
+      font-size: 0.75em;
+      border: none;
+      background-color: $light-bg;
+      &::placeholder {
+        font-family: $font-ssp-regular;
+        font-size: 12px;
+        color: $white;
+      }
+    }
+    &__button {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      height: 100%;
+      padding: 0 6px;
+      outline: none;
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+/* End chat */
+
+/*********************************************/
+
 /* Begin cabinet__header */
 
 .cabinet__header {
@@ -195,14 +367,32 @@
 .tab-switch {
   display: flex;
   align-items: center;
+  &.tab-switch_full {
+    .tab-switch__title {
+      font-family: $font-ssp-bold;
+      font-size: 0.9375em;
+    }
+  }
   &__title {
+    margin-right: 10px;
     font-size: 1.125em;
     line-height: 1em;
     color: $light-text-color;
   }
   &__list {
-    padding: 0 10px;
     display: flex;
+    &_full {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      .tab-switch__list-item {
+        height: 100%;
+        padding: 0 11px;
+        border-radius: 0 !important;
+        display: flex;
+        align-items: center;
+      }
+    }
     .uk-active {
       color: $white;
       border-radius: 3px;
@@ -220,6 +410,7 @@
       line-height: 1;
       padding: 5px 10px;
       color: $light-text-color;
+      white-space: nowrap;
       &:hover {
         color: $light-text-color;
         text-decoration: none;
@@ -239,6 +430,9 @@
   width: 230px;
   height: 20px;
   line-height: 1;
+  &_small {
+    width: 155px;
+  }
   &_right {
     margin-left: auto;
   }
@@ -363,6 +557,12 @@
   width: 100%;
   border-collapse: collapse;
   background-color: $light-bg;
+  &.table_spec,
+  &.table_profile {
+    th, td {
+      padding-left: 20px;
+    }
+  }
   &__head {
     .table__row {
       height: 40px;
@@ -378,12 +578,13 @@
     }
   }
   th {
-    padding-left: 20px;
+    padding-left: 10px;
     font-family: $font-ssp-bold;
     font-size: 0.75em;
     text-align: left;
     text-transform: uppercase;
     line-height: 1.25;
+    overflow: hidden;
     color: $light-text-color;
     &:first-child {
       border-radius: 3px 0 0 3px;
@@ -393,9 +594,10 @@
     }
   }
   td {
-    padding-left: 20px;
+    padding-left: 10px;
     font-family: $font-ssp-regular;
     font-size: 0.875em;
+    overflow: hidden;
     color: $main-text-color;
     &.num_style {
       font-family: $global-font-family;
@@ -439,6 +641,39 @@
     align-items: center;
     svg {
       margin-right: 12px;
+    }
+  }
+  &_hover {
+    .table__body {
+      .table__row {
+        transition: background-color 300ms ease-in-out;
+        &:hover {
+          cursor: pointer;
+          background-color: transparentize($light-text-color, 0.5);
+        }
+        &:active {
+          background-color: transparentize($link-color, 0.3);
+        }
+      }
+    }
+  }
+  &_statistics {
+    .table__row {
+      height: 30px;
+      &.row_active {
+        background-color: transparentize($link-color, 0.3) !important;
+      }
+    }
+    th, td {
+      padding-left: 5px;
+    }
+    td, th {
+      &.data_1 {
+        padding-left: 10px;
+      }
+      &.data_check {
+        line-height: 1;
+      }
     }
   }
 }
@@ -732,7 +967,18 @@
   }
   &_forgot {
     margin-left: auto;
-
+  }
+  &_plus {
+    height: 100%;
+    font-size: 12px;
+    font-family: $font-ssp-bold;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      margin-left: 5px;
+    }
   }
   &.link_download {
     svg {
@@ -1055,23 +1301,539 @@
 
 /* Begin markets */
 
-.markets-toolbar {
+.markets {
+  &_box {
+    //overflow: hidden;
+    border-radius: 3px;
+    background-color: $light-bg;
+    box-shadow: $main-box-shadow;
+  }
+  &-toolbar {
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: $light-bg;
+    box-shadow: $main-box-shadow;
+  }
+  &-info {
+    position: relative;
+    margin-top: 10px;
+    padding: 0 10px;
+    height: 48px;
+    border-radius: 3px;
+    background-color: $light-bg;
+    box-shadow: $main-box-shadow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &__head {
+      display: flex;
+      align-items: center;
+    }
+    &__date {
+      margin-right: 15px;
+      font-family: $font-ssp-regular;
+      font-size: 0.6875em;
+      color: $light-text-color;
+    }
+    &__title {
+      font-family: $font-ssp-bold;
+      font-size: 0.75em;
+      color: $light-text-color;
+    }
+    &__content {
+      max-width: 100%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-family: $font-ssp-regular;
+      font-size: 0.6875em;
+      color: $main-text-color;
+      line-height: 14px;
+      overflow: hidden;
+      max-height: 14px;
+    }
+    &__close {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      padding: 5px;
+      display: inline;
+      line-height: 0;
+      height: 9px;
+    }
+  }
+  &-main {
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: $light-bg;
+    box-shadow: $main-box-shadow;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    &__left {
+      min-width: 306px;
+      max-width: 306px;
+    }
+    &__right {
+      width: 100%;
+      border-left: 1px solid transparentize($border-color, 0.8);
+    }
+    &_sm-table {
+      min-width: 230px;
+      max-width: 230px;
+    }
+  }
+  &__tables {
+    align-items: flex-start;
+  }
+  &-orders {
+    min-width: 390px;
+    max-width: 390px;
+    margin-right: 10px;
+  }
+  &-courses {
+    width: 100%;
+  }
+}
+
+.box_margin {
   margin-top: 10px;
-  border-radius: 3px;
-  background-color: $light-bg;
-  box-shadow: $main-box-shadow;
 }
 
-.toolbar-table {
+.toolbar-statistics {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.statistics__item {
   height: 48px;
-  border-collapse: collapse;
-  td {
-    border-right: 1px solid $border-color;
+  padding: 0 20px 0 10px;
+  border-right: 1px solid transparentize($border-color, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &:last-child {
+    border-right: none;
   }
-  .data_1 {
-
+  &-name {
+    font-family: $font-ssp-bold;
+    font-size: 0.75em;
+    color: $light-text-color;
+    white-space: nowrap;
+  }
+  &-value {
+    font-family: $global-font-family;
+    font-size: 0.75em;
+    color: $main-text-color;
+    white-space: nowrap;
+  }
+  &.currency {
+    padding: 0 36px;
+    font-family: $font-ssp-bold;
+    font-size: 0.8125em;
+    color: $main-text-color;
+  }
+  &.stat_link {
+    padding: 0 10px;
   }
 }
+
+.main__header {
+  height: 42px;
+  padding: 10px;
+  border-bottom: 1px solid transparentize($border-color, 0.8);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  &.header_small {
+    height: 32px;
+  }
+}
+
+.header__title {
+  font-family: $font-ssp-bold;
+  font-size: 0.9375em;
+  color: $gray;
+}
+
+.header__order-link {
+  font-family: $font-ssp-bold;
+  font-size: 0.75em;
+  color: $link-color;
+  text-decoration: none;
+  &:hover {
+    color: $link-color;
+    text-decoration: none;
+  }
+}
+
+.header__switchers {
+  margin-left: 15px;
+}
+
+.header__controls {
+  width: 100%;
+}
+
+.main__table {
+  padding: 7px;
+}
+
+.search-box {
+  padding: 6px 10px 5px;
+  display: flex;
+  align-items: center;
+}
+
+.table-box {
+  padding: 5px 5px 10px;
+}
+
+.table_markets {
+  .table__row {
+    height: 30px;
+    padding-bottom: 5px;
+  }
+  td, th {
+    padding: 0 14px 0 0;
+    line-height: 1;
+    box-sizing: border-box;
+    &:last-child {
+      padding: 0;
+    }
+    &.data_1 {
+      padding-left: 10px;
+    }
+  }
+  td {
+    &.favorites {
+      width: 25px;
+      text-align: center;
+      line-height: 0;
+      box-sizing: border-box;
+    }
+    div {
+      width: 100%;
+      max-width: 73px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+}
+
+.table_order {
+  .table__row {
+    height: 30px;
+    &.row_mean {
+      background-color: $dark-bg !important;
+    }
+  }
+  th, td {
+    &.data_1 {
+      min-width: 100px;
+      box-sizing: border-box;
+    }
+    &.data_2 {
+      width: 100%;
+      text-align: center;
+    }
+    &.data_3 {
+      min-width: 100px;
+      box-sizing: border-box;
+    }
+    &.data_mean {
+      font-family: $global-font-family;
+      font-size: 0.75em;
+      text-align: center;
+      border-radius: 3px;
+    }
+  }
+}
+
+.inform_style {
+  font-family: $font-ssp-regular;
+  font-style: italic;
+  font-size: 0.6875em;
+  color: $link-color;
+}
+
+.limits-table {
+  padding: 5px 10px;
+  &__item {
+    margin-bottom: 2px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__row {
+    flex-basis: 50%;
+    margin-right: 10px;
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+  &__table {
+    width: 100%;
+    height: 28px;
+    overflow: hidden;
+    border: 1px solid $form-border-color;
+    border-collapse: collapse;
+    border-radius: 3px;
+    background-color: $form-bg;
+    td, th {
+      box-sizing: border-box;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    td {
+      &.data_1 {
+        width: 35%;
+        padding-left: 7px;
+        font-family: $font-ssp-bold;
+        font-size: 0.75em;
+        color: transparentize($main-text-color, 0.3);
+        text-transform: uppercase;
+      }
+      &.data_2 {
+        text-align: left;
+        font-family: $global-font-family;
+        font-size: 0.75em;
+        color: $main-text-color;
+      }
+      &.data_3 {
+        max-width: 28px;
+        height: 100%;
+        padding: 0 11px;
+        font-family: $font-ssp-regular;
+        font-size: 0.75em;
+        color: $white;
+        text-align: center;
+        text-transform: uppercase;
+        background-color: $button-light-bg;
+      }
+    }
+  }
+}
+
+.limits-button__wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.limits-btn__item {
+  min-height: 30px;
+  flex-basis: 50%;
+  font-family: $font-ssp-bold;
+  font-size: 0.8125em;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 300ms ease-in-out;
+  &:hover, &:active, &:focus {
+    color: $white;
+    text-decoration: none;
+  }
+  &.limits-btn_buy {
+    background-color: $green;
+    &:hover {
+      background-color: $green-hover;
+    }
+    &:active {
+      background-color: $green-passed;
+    }
+  }
+  &.limits-btn_sell {
+    background-color: $red;
+    &:hover {
+      background-color: $red-hover;
+    }
+    &:active {
+      background-color: $red-passed;
+    }
+  }
+}
+
+.limits__trade {
+  &-text {
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 22px 0;
+    font-family: $font-ssp-regular;
+    font-size: 0.875em;
+    color: transparentize($main-text-color, 0.3);
+    text-align: center;
+  }
+}
+
+/* End markets */
+
+/*********************************************/
+
+/* Begin graph-box */
+
+.graph__conditions {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  &-item {
+    margin-right: 15px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &_drop {
+    position: relative;
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 5px;
+      background-color: #fff;
+      vertical-align: middle;
+    }
+  }
+}
+
+.conditions__link {
+  font-family: $font-ssp-bold;
+  font-size: 0.75em;
+  color: $light-text-color;
+  text-decoration: none;
+  transition: color 300ms ease-in-out;
+  &:hover {
+    text-decoration: none;
+    //color: $button-light-bg-focused;
+    color: $light-text-color;
+  }
+  &_drop {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    svg {
+      margin-left: 4px;
+    }
+  }
+}
+
+.dropdown__list {
+  //this is box of dropdown list
+}
+
+.graph__toggles {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &-column {
+    display: flex;
+    align-items: center;
+  }
+  &-item {
+    position: relative;
+    margin: 0 7px;
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      z-index: 0;
+      width: 0;
+      height: calc(100% + 2px);
+      transform: translateX(-50%);
+      transition: all 300ms ease-in-out;
+    }
+  }
+  &-link {
+    position: relative;
+    z-index: 2;
+    min-height: 42px;
+    font-family: $font-ssp-bold;
+    font-size: 0.75em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 300ms ease-in-out;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &_green {
+    .graph__toggles-link {
+      color: $green;
+      &:hover {
+        color: $green;
+      }
+    }
+    .toggles-link_active {
+      &:before {
+        width: calc(100% + 20px);
+        background-color: $green;
+      }
+      .graph__toggles-link {
+        color: $white;
+      }
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+  &_red {
+    .graph__toggles-link {
+      color: $red;
+      &:hover {
+        color: $red;
+      }
+    }
+    .toggles-link_active {
+      &:before {
+        width: calc(100% + 20px);
+        background-color: $red;
+      }
+      .graph__toggles-link {
+        color: $white;
+      }
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}
+
+.graph__checkbox {
+  max-width: 60px;
+  margin-left: auto;
+}
+
+.graph__controls {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &-item {
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &-link {
+    padding: 5px;
+  }
+}
+
+/* End graph-box */
+
+/*********************************************/
 
 /* End markets */
 
@@ -1239,7 +2001,7 @@
   &__change-password {
     padding: 5px 10px 10px;
   }
-  &__history-checkbox-box {
+  &__checkbox-box {
     display: flex;
     align-items: center;
   }
@@ -1263,8 +2025,10 @@
   }
   &__checkbox-btn {
     position: relative;
-    width: 12px;
-    height: 12px;
+    min-width: 12px;
+    max-width: 12px;
+    min-height: 12px;
+    max-height: 12px;
     border: 1px solid $form-border-color;
     border-radius: 2px;
     background-color: $form-bg;
@@ -1284,7 +2048,7 @@
     }
   }
   &__checkbox-text {
-    margin-left: 5px;
+    margin: 0 5px;
     font-family: $font-ssp-regular;
     font-size: 0.75em;
     line-height: 14px;
@@ -1309,6 +2073,24 @@
     max-width: 390px;
     margin-left: auto;
     margin-right: auto;
+  }
+  &__cancel {
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    &-icon {
+      margin-right: 5px;
+      line-height: 1;
+      svg {
+        line-height: 1;
+      }
+    }
+    &-text {
+      font-family: $font-ssp-regular;
+      font-size: 0.75em;
+      color: $red;
+    }
   }
 }
 

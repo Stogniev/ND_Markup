@@ -6,8 +6,10 @@ $dark-bg: #1c304a;
 $white: #ffffff;
 $gray: #c0c0c0;
 $green: #499f68;
+$green-hover: #43925f;
 $green-passed: #3d8456;
 $red: #c75146;
+$red-hover: #bf453a;
 $red-passed: #b04035;
 $yellow: #f9c546;
 $table-dark-line-bg: #253b5a;
@@ -17,6 +19,7 @@ $footer-bg: #132133;
 $svg-color: #13315c;
 $link-color: #6c91bf;
 $border-color: #e7e7e7;
+$border-color-dark: #1b2f49;
 $form-bg: #355075;
 $form-border-color: #4c6b95;
 $form-checked: #6386ec;
@@ -27,6 +30,8 @@ $button-light-gray-bg: #9aa7ba;
 $button-dark-bg: rgba(53, 80, 117, 0.5);
 $main-box-shadow: 0 2px 6px 0 #1c304a;
 $footer-box-shadow: 0 2px 6px 0 #132133;
+$chat-box-shadow: 0 2px 15px 0 #061426;
+$chat-msg-bg: #51709a;
 
 //Custom font variables
 $font-ssp-regular: 'SourceSansPro-Regular', monospace, sans-serif;

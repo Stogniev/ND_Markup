@@ -10,6 +10,7 @@ import { WalletsComponent } from './components/wallets/wallets.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { MarketsComponent } from './components/markets/markets.component';
+import { MainGraphTogglesComponent } from './components/main-graph-toggles/main-graph-toggles.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MarketsComponent } from './components/markets/markets.component';
     WalletsComponent,
     RegistrationComponent,
     LogInComponent,
-    MarketsComponent
+    MarketsComponent,
+    MainGraphTogglesComponent
   ],
   imports: [
     BrowserModule,
