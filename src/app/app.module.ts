@@ -21,8 +21,7 @@ import { MainGraphTogglesComponent } from './components/main-graph-toggles/main-
     WalletsComponent,
     RegistrationComponent,
     LogInComponent,
-    MarketsComponent,
-    MainGraphTogglesComponent
+    MarketsComponent
   ],
   imports: [
     BrowserModule,
