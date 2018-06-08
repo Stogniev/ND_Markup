@@ -13,6 +13,7 @@ import { MarketsComponent } from './components/markets/markets.component';
 import { MainGraphTogglesComponent } from './components/main-graph-toggles/main-graph-toggles.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { LogInCodeComponent } from './components/log-in-code/log-in-code.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ChatComponent } from './components/chat/chat.component';
     LogInComponent,
     MarketsComponent,
     NotificationsComponent,
-    ChatComponent
+    ChatComponent,
+    LogInCodeComponent
   ],
   imports: [
     BrowserModule,

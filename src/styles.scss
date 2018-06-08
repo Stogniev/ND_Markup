@@ -566,9 +566,11 @@
       padding: 5px 10px;
       color: $light-text-color;
       white-space: nowrap;
+      transition: background-color 300ms ease-in-out, color 300ms;
       &:hover {
-        color: $light-text-color;
+        color: $white;
         text-decoration: none;
+        background-color: $dark-bg;
       }
     }
   }

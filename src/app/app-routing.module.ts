@@ -9,6 +9,7 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { MarketsComponent } from './components/markets/markets.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { LogInCodeComponent } from './components/log-in-code/log-in-code.component';
 
 const routes: Routes = [
   { path: 'spec-assets', component: SpecAssetsComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'wallets', component: WalletsComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'log-in', component: LogInComponent },
+  { path: 'log-in-code', component: LogInCodeComponent },
   { path: 'markets', component: MarketsComponent },
   { path: 'chat', component: ChatComponent },
   { path: 'notifications', component: NotificationsComponent }
