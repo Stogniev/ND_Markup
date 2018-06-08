@@ -227,7 +227,7 @@
     border: 1px solid $border-color-dark;
     border-radius: 3px;
     background-color: $light-bg;
-    box-shadow: $chat-box-shadow;
+    box-shadow: $darken-box-shadow;
   }
   &__header {
     min-height: 30px;
@@ -249,6 +249,7 @@
     svg {
       width: 12px;
       height: 12px;
+      stroke: $gray;
     }
   }
   &-room {
@@ -345,6 +346,160 @@
 }
 
 /* End chat */
+
+/*********************************************/
+
+/* Begin notifications */
+
+.notification__box {
+  position: fixed;
+  right: calc((100% - 940px) / 2);
+  bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.notification {
+  position: relative;
+  min-width: 330px;
+  max-width: 330px;
+  margin-bottom: 20px;
+  padding: 10px 0 8px;
+  overflow: hidden;
+  border: 1px solid $border-color-dark;
+  border-bottom: 3px solid transparent;
+  border-radius: 3px;
+  background-color: $light-bg;
+  box-shadow: $darken-box-shadow;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  &.notify_warning {
+    border-bottom-color: $red;
+    .notification__title {
+      color: $red;
+    }
+    .notification__icon {
+      svg {
+        fill: $red;
+      }
+    }
+  }
+  &.notify_success {
+    border-bottom-color: $green;
+    .notification__title {
+      color: $green;
+    }
+    .notification__icon {
+      svg {
+        fill: $green;
+      }
+    }
+  }
+  &.notify_inform {
+    border-bottom-color: $button-light-bg;
+    .notification__title {
+      color: $button-light-bg;
+    }
+    .notification__icon {
+      svg {
+        fill: $button-light-bg;
+      }
+    }
+  }
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 7.5px;
+    line-height: 0;
+    svg {
+      width: 12px;
+      height: 12px;
+      stroke: $gray;
+    }
+  }
+  &__icon {
+    min-width: 50px;
+    max-width: 50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    svg {
+      margin-top: 7px;
+      max-width: 20px;
+      max-height: 20px;
+    }
+  }
+  &__info {
+    width: 100%;
+    padding-right: 30px;
+  }
+  &__title {
+    margin-bottom: 5px;
+    font-family: $font-ssp-bold;
+    font-size: 0.6875em;
+    letter-spacing: 0.6px;
+  }
+  &__text {
+    font-family: $font-ssp-bold;
+    font-size: 0.875em;
+    letter-spacing: 0.7px;
+    color: $white;
+  }
+  &__btns {
+    margin-top: 7px;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+.notify__btn {
+  min-height: 24px;
+  min-width: 110px;
+  margin-right: 10px;
+  font-family: $font-ssp-bold;
+  font-size: 0.8125em;
+  text-transform: uppercase;
+  text-align: center;
+  color: $white;
+  border-radius: 3px;
+  transition: background-color 300ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+  &-green {
+    background-color: $green;
+    &:hover {
+      background-color: $green-hover;
+    }
+    &:active, &:focus {
+      background-color: $green-passed;
+    }
+  }
+  &-red {
+    background-color: $red;
+    &:hover {
+      background-color: $red-hover;
+    }
+    &:active, &:focus {
+      background-color: $red-passed;
+    }
+  }
+}
+
+/* End notifications */
 
 /*********************************************/
 

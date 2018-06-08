@@ -11,6 +11,8 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { LogInComponent } from './components/log-in/log-in.component';
 import { MarketsComponent } from './components/markets/markets.component';
 import { MainGraphTogglesComponent } from './components/main-graph-toggles/main-graph-toggles.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { MainGraphTogglesComponent } from './components/main-graph-toggles/main-
     WalletsComponent,
     RegistrationComponent,
     LogInComponent,
-    MarketsComponent
+    MarketsComponent,
+    NotificationsComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
